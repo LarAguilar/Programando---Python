@@ -10,17 +10,28 @@
 # Código fonte em Python 3
 ############################
 
+import funcoes
+
 def main():
-    print("a")
+    # declaracao de variaveis
+    entrada = str()
+    saida = str()
+    nomeArqE = str()
+    nomeArqS = str()
+    dic = {}
 
-    entrada = open('entrada.txt', 'r')
-    
-    texto = entrada.readline()
+    #entrada de dados
+    nomeArqE = input()
+    entrada = open(nomeArqE, 'r')
+    nomeArqS = input()
+    saida = open(nomeArqS, "w")
 
-    print(texto)
+    dic = funcoes.f_lerArq(entrada)
+
+    saida.write(funcoes.f_saidaDados(dic))
 
     entrada.close()
-
+    saida.close()
 
 if __name__ == "__main__":
     main()
