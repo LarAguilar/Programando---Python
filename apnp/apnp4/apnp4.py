@@ -10,8 +10,9 @@
 # Código fonte em Python 3
 ############################
 
-import funcoes
+from funcs import f_lerArq, f_saidaDados
 
+# função principal
 def main():
     # declaracao de variaveis
     entrada = str()
@@ -19,19 +20,30 @@ def main():
     nomeArqE = str()
     nomeArqS = str()
     dic = {}
+    saidaDados = str()
 
     #entrada de dados
     nomeArqE = input()
-    entrada = open(nomeArqE, 'r')
     nomeArqS = input()
+
+    #abre os arquivos de entrada e saida
+    entrada = open(nomeArqE, "rt")
     saida = open(nomeArqS, "w")
 
-    dic = funcoes.f_lerArq(entrada)
+    #processamento
+    dic = f_lerArq(entrada)
 
-    saida.write(funcoes.f_saidaDados(dic))
+    saidaDados = (f_saidaDados(dic))
+    
+    #saida de dados
+    saida.write(saidaDados) #escreve os dados no arquivo de saida
+    print(saidaDados)
 
+    #fecha os arquivos
     entrada.close()
     saida.close()
+    # Fim da função principal
+
 
 if __name__ == "__main__":
     main()

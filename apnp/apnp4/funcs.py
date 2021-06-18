@@ -10,7 +10,6 @@
 # Código fonte em Python 3
 ############################
 
-# Função que recebe um arquivo texto e retorna um dicionario
 def f_lerArq(entrada):
     #declaracao de variaveis
     dic = dict()
@@ -24,14 +23,21 @@ def f_lerArq(entrada):
         listProd = line.split(";")
         dic[listProd[0]] = listProd[1]
         line = entrada.readline()
-
     return dic
+    # fim da função
 
+# Função que recebe um dicionário e retorna uma String
 def f_saidaDados(dic):
     #declaração de variavel
+    lista = []
     saida = ""
 
     for item in dic:
-        saida += "PRODUTO=" + item + " PRECO=" + dic[item]
+        lista.append(f'PRODUTO={item} PRECO={dic[item]}')
         
+    lista.sort()
+    
+    for linha in lista:
+        saida+=linha
+    
     return saida
