@@ -17,14 +17,19 @@ def f_lerArq(entrada):
     line = ""
 
     #processamento
-    line = entrada.readline()
+    line = entrada.readline().strip()
 
     while line != "":
         listProd = line.split(";")
+        print(dic)
         dic[listProd[0]] = listProd[1]
         line = entrada.readline()
+    
     return dic
     # fim da função
+
+# lista[0] = "duda"
+
 
 # Função que recebe um dicionário e retorna uma String
 def f_saidaDados(dic):
@@ -32,12 +37,12 @@ def f_saidaDados(dic):
     lista = []
     saida = ""
 
-    for item in dic:
-        lista.append(f'PRODUTO={item} PRECO={dic[item]}')
-        
+    for chave in dic:
+        lista.append(f'PRODUTO={chave} PRECO={dic[chave]}')
+
     lista.sort()
-    
+    ["Produto= A borboleto Preco=42.56", "produto= dnaslnxps preco=4566"]
     for linha in lista:
         saida+=linha
-    
+        
     return saida
