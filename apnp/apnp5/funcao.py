@@ -10,6 +10,7 @@
 # Código fonte em Python 3
 ############################
 
+# função que recebe um arquivo txt e retorna um dicionario contendo as informações das linhas do txt
 def f_lerArq(entrada):
     #declaracao de variaveis
     dic = dict()
@@ -18,7 +19,8 @@ def f_lerArq(entrada):
 
     #processamento
     line = entrada.readline()
-
+    
+    # armazena os dados da linha do arquivo txt em um dicionario
     while line != "":
         listProd = line.split(";")
         dic[listProd[0]] = [float(listProd[1]), int(listProd[2]), int(listProd[3])]
@@ -30,28 +32,29 @@ def f_lerArq(entrada):
 # lista[0] = "duda"
 
 
-# Função que recebe um dicionário e retorna uma String
-def f_saidaDados(dic):
+# Função que recebe um dicionário e um arq txt 
+def f_saidaDados(dic, saida):
     #declaração de variavel
     lista = []
-    saida = ""
 
     #processamento
+
+    # armazena os dados do dicionario em uma lista
     for chave in dic:
         totalVendas = dic[chave][0] *dic[chave][2]
         lista.append(f'PRODUTO={chave} VENDAS={totalVendas:.2f}')
 
     lista.sort() # coloca os itens em ordem alfabetica
+    
+    #saida de dados
     for linha in lista:
-        if linha == lista[len(lista) - 1]:
-            saida+=linha
-        else: 
-            saida+=linha + "\n"
+        print(linha)
+        saida.write(linha)
         
     return saida
     #fim da função
 
-# Função que recebe um dicionario e o nome do produto, e retorna falso
+# Função que recebe um dicionario e o nome do produto, e retorna bool
 def consultaProduto(dic, nomePdt):
     #processamento
     if nomePdt in dic:
