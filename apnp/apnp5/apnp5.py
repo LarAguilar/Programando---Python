@@ -33,11 +33,9 @@ def main():
     #processamento
     dic = f_lerArq(entrada)
     dic = vendas(dic)
-    saidaDados = f_saidaDados(dic)
-    
+
     #saida de dados
-    saida.write(saidaDados) #escreve os dados no arquivo de saida
-    print(saidaDados)
+    f_saidaDados(dic, saida)
 
     #fecha os arquivos
     entrada.close()

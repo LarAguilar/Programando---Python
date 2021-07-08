@@ -31,10 +31,9 @@ def f_lerArq(entrada):
 
 
 # Função que recebe um dicionário e retorna uma String
-def f_saidaDados(dic):
+def f_saidaDados(dic, saida):
     #declaração de variavel
     lista = []
-    saida = ""
 
     #processamento
     for chave in dic:
@@ -43,12 +42,9 @@ def f_saidaDados(dic):
 
     lista.sort() # coloca os itens em ordem alfabetica
     for linha in lista:
-        if linha == lista[len(lista) - 1]:
-            saida+=linha
-        else: 
-            saida+=linha + "\n"
-        
-    return saida
+        saida.write(linha)
+        print(linha)
+
     #fim da função
 
 # Função que recebe um dicionario e o nome do produto, e retorna falso
