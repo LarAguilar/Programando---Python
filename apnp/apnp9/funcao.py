@@ -19,12 +19,13 @@ def f_lerArq(entrada):
     #processamento
     line = entrada.readline()
 
+
     #organiza os dados separados por ; em um dicionario
     while line != "":
         listProd = line.split(";")
-        dic[listProd[0]] = [float(listProd[1]), int(listProd[2]), int(listProd[3])]
+        dic[listProd[0][8:].replace('"', '')] = [float(listProd[1].replace(',', '.')), int(listProd[2]), int(listProd[3])]
         line = entrada.readline()
-    
+        
     return dic
     # fim da função
 

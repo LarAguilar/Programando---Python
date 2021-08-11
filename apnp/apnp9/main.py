@@ -24,19 +24,21 @@ def main():
     #declaração de variaveis
     entrada = str()
 
-    # entrada = input()
+    entrada = input()
 
     # lê os dados do arquivo
-    with open('entrada.txt', "rt") as entrada:
+    with open(entrada, "rt") as entrada:
         #faz a leitura e o processamento das informações, retornando um dicionario 
         dic = f_lerArq(entrada)
-    
+
     # escreve o dicionario "dic" em um arquivo json, com indentação 4
     with open('dados.json', 'w') as fp:
         json.dump(dic, fp, indent=4)
-
+    
     # processamento da saida de dados
     f_saidaDados(dic)
+
+    
 
     # fim do programa princiaal
 
